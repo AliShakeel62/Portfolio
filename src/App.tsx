@@ -3,6 +3,9 @@ import { ToggleButton } from "./component/Togglebutton";
 import Sidebar from "./component/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Project from "./Pages/Project"
+import Contact from "./Pages/Contect";
 
 
 function App() {
@@ -24,9 +27,9 @@ function App() {
             <main className="p-1  flex-grow bg-[var(--background)] text-white">
               <Routes>
                 <Route path="/" element={<Home />} />
-                {/* <Route path="/projects" element={<Projects />} />
+                 <Route path="/projects" element={<Project />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/about" element={<About />} /> */}
+                <Route path="/about" element={<About />} />
               </Routes>
             </main>
           </div>

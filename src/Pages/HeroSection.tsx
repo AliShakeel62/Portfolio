@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Adobe from "../assets/Adobe Express - file.png";
 import { useTheme } from "../context/ThemeProvider";
 import Style from "../Style/HeroSection.module.css"
+import {Link} from "react-router-dom";
 export default function HeroSection() {
   const { theme } = useTheme();
   const shapeColor = theme === "dark" ? "#22c55e" : "#22c55e";
@@ -95,17 +96,20 @@ export default function HeroSection() {
       Express, React, and Node.js. I enjoy solving real-world problems and
       collaborating with teams to deliver scalable solutions.
     </p>
-
-    <button
+<Link to="/projects">
+  <button
       className={`mt-6 px-6 py-3 rounded-full font-semibold transition-all duration-300 
         ${
           theme === "dark"
             ? "bg-white text-green-600 hover:bg-gray-200"
             : "bg-green-600 text-white hover:bg-green-700"
         }`}
+
     >
       Explore My Work
     </button>
+</Link>
+  
   </div>
 </section>
 
