@@ -1,22 +1,43 @@
 import { useTheme } from "../context/ThemeProvider";
 import { FaEnvelope, FaPhoneAlt, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
     const { theme } = useTheme();
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
+    const form = useRef<HTMLFormElement>(null); // ✨ TypeScript type
+    const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+    const serviceId = import.meta.env.VITE_SERVICE_ID;
+    const templateId = import.meta.env.VITE_TEMPLATE_ID;
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const sendEmail = (e: React.FormEvent) => {
         e.preventDefault();
 
         if (!email.endsWith("@gmail.com")) {
             setError("Only @gmail.com emails are accepted.");
+            return;
         } else {
             setError("");
-            // ✅ Submit form logic here
-            alert("Message Sent!");
         }
+
+        emailjs.sendForm(serviceId, templateId, form.current!, {
+            publicKey: publicKey,
+        }).then(
+            () => {
+                alert("Message Sent!");
+                console.log('SUCCESS!');
+                // ✨ Clear form fields
+                if (form.current) {
+                    form.current.reset();  // Reset form fields
+                    setEmail("");          // Reset controlled email input
+                }
+            },
+            (error) => {
+                console.log('FAILED...', error.text);
+            }
+        );
     };
 
     return (
@@ -34,7 +55,7 @@ export default function Contact() {
                 {/* Left Info */}
                 <section className="space-y-3">
                     <p className="text-lg">
-                      I'm always open to meaningful conversations whether it's about a new project creative collaboration or simply sharing your vision Feel free to reach out anytime  
+                        I'm always open to meaningful conversations whether it's about a new project creative collaboration or simply sharing your vision Feel free to reach out anytime  
                     </p>
 
                     {/* Email Card */}
@@ -69,11 +90,12 @@ export default function Contact() {
 
                 {/* Right Form */}
                 <section>
-                    <form className="space-y-2" onSubmit={handleSubmit}>
+                    <form className="space-y-2" onSubmit={sendEmail} ref={form}>
                         <div>
                             <label htmlFor="name" className="block text-md font-medium">Name:</label>
                             <input
                                 type="text"
+                                name="user_name"
                                 id="name"
                                 required
                                 className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -84,6 +106,7 @@ export default function Contact() {
                             <input
                                 type="email"
                                 id="email"
+                                name="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -96,6 +119,7 @@ export default function Contact() {
                             <textarea
                                 id="message"
                                 rows={4}
+                                name="message"
                                 required
                                 className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                             ></textarea>

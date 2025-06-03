@@ -36,8 +36,8 @@ const Sidebar: React.FC = () => {
 
   const linkStyle = (path: string) =>
     clsx(
-      "flex items-center gap-3 px-4 py-2 rounded transition hover:bg-green-100",
-      location.pathname === path ? "bg-green-200 font-semibold" : ""
+      "flex items-center gap-3 px-4 py-2 rounded transition hover:bg-green-400",
+      location.pathname === path ? "bg-green-400 font-semibold" : ""
     );
 
   return (

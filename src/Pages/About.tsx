@@ -85,12 +85,16 @@ export default function About() {
                         <p className={`text-lg mb-4 ${theme === "dark" ? "text-gray-300" : "text-[#001800]"}`}>
                             I'm <span className={`text-xl font-bold ${theme === "dark" ? "text-green-500" : "text-green-800"}`}>M.Ali Shakeel</span>, a 17-year-old MERN-Stack Developer from Karachi with a passion for building high-performance web apps that solve real-world problems. I've already fallen in love with the art of problem-solving through programming, where every bug is a puzzle waiting to be solved.
                         </p>
+                        <a href="https://drive.google.com/uc?export=download&id=11HonAq4FMmWOY-q-Z1t1iaato09R86bg">
                         <button
                             className={`mt-2 px-4 py-2 rounded-full font-semibold transition-all duration-300 
                             ${theme === "dark" ? "bg-white text-green-600 hover:bg-gray-200" : "bg-green-600 text-white hover:bg-green-700"}`}
+                            
                         >
                             Download My Resume
                         </button>
+                        </a>
+                       
                     </div>
                 </div>
 

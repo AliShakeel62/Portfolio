@@ -11,7 +11,7 @@ export default function Project() {
     const projects = [
         {
             id: 1,
-            name: "School Attendance",
+            name: "School Managment",
             image: `${Screenshot}`, // Replace with your own image
             link: "https://attendence-web-eni1.vercel.app/"
         },
