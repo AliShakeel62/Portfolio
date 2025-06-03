@@ -17,7 +17,7 @@ node_modules/
 jspm_packages/
 
 # Build files
-dist/
+
 dist-ssr/
 build/
 .out/
@@ -29,9 +29,7 @@ build/
 *.tmp
 
 # Environment files (customize as needed)
-.env*.local  # Ignore local env files but keep .env
-!.env.example  # Keep template file
-
+.env/
 # Editor
 .vscode/*
 !.vscode/extensions.json
