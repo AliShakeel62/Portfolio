@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import Adobe from "../assets/Adobe Express - file.png";
 import { useTheme } from "../context/ThemeProvider";
-import Style from "../Style/HeroSection.module.css"
 import {Link} from "react-router-dom";
 export default function HeroSection() {
   const { theme } = useTheme();

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeProvider";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Adobe from "../assets/Adobe Express - file.png";
-import Whatsapp from "../assets/WhatsApp_Image_2025-06-02_at_6.22.43_PM-removebg-preview.png"
+
 
 export default function About() {
     const [showElements, setShowElements] = useState(false);
