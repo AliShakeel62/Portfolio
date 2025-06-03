@@ -7,13 +7,32 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-env
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
 
-# Editor directories and files
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build files
+dist/
+dist-ssr/
+build/
+.out/
+.next/
+
+# Cache
+.cache/
+.temp/
+*.tmp
+
+# Environment files (customize as needed)
+.env*.local  # Ignore local env files but keep .env
+!.env.example  # Keep template file
+
+# Editor
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -23,3 +42,19 @@ env
 *.njsproj
 *.sln
 *.sw?
+
+# Testing
+coverage/
+.nyc_output/
+
+# Debug
+debug/
+*.pem
+
+# Misc
+*.bak
+*.patch
+*.diff
+*.error
+*.dump
+*.stackdump
